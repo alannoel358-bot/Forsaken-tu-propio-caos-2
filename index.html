@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0b0b12">
-<title>Forsaken: Tu Propio Caos</title>
-<style>
-:root{--bg:#0b0b12;--panel:#151520;--panel2:#1c1c2a;--line:#303044;--text:#f3f2fa;--muted:#aaa9c0;--red:#ff365f;--purple:#9b6dff;--green:#7df0bb}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211329 0,#0b0b12 48%);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
-button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;padding:11px 14px;font-weight:700}button:hover{border-color:var(--purple)}button.primary{background:linear-gradient(110deg,#ff365f,#a34bff);border:0}button.subtle{background:transparent}button:disabled{opacity:.4;cursor:not-allowed}
-header{padding:22px 16px 14px;max-width:1050px;margin:auto} .eyebrow{color:#ff8aa2;text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:900}h1{font-size:clamp(25px,7vw,42px);line-height:1.02;margin:8px 0}h1 span{color:var(--red)}.subtitle{color:var(--muted);margin:8px 0 0}
-main{max-width:1050px;margin:auto;padding:0 12px 40px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0 16px}.tab{font-size:12px;padding:12px 4px}.tab.active{background:#382044;border-color:#9b6dff;color:white}
-.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:1fr;gap:13px}.card{background:linear-gradient(145deg,rgba(25,25,39,.97),rgba(17,17,27,.97));border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 12px 32px #0003}.card h2,.card h3{margin:0 0 12px}.card h2{font-size:19px}.card h3{font-size:15px}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}.row{display:flex;gap:9px;align-items:center}.row.wrap{flex-wrap:wrap}.row>*{min-width:0}.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}.field label{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.3px}.field input,.field textarea,.field select,.composer textarea{width:100%;background:#0d0d16;border:1px solid var(--line);border-radius:11px;padding:11px;color:var(--text);outline:none}.field input:focus,.field textarea:focus,.field select:focus,.composer textarea:focus{border-color:var(--purple)}.field textarea{resize:vertical;min-height:76px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.avatar{width:86px;height:86px;display:grid;place-items:center;border-radius:22px;font-size:42px;background:linear-gradient(135deg,#2e1736,#17172b);border:1px solid #5a3d70;flex-shrink:0}.stat{background:#10101a;border:1px solid var(--line);border-radius:12px;padding:10px;flex:1}.stat strong{display:block;font-size:18px}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px 9px;color:#d9caff;font-size:11px;font-weight:800}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chatlog{height:min(48vh,460px);min-height:250px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px;background:#0c0c14;border:1px solid var(--line);border-radius:13px}.bubble{max-width:94%;padding:11px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.ai{background:#21182b;border:1px solid #44304f;align-self:flex-start}.bubble.user{background:#29203c;border:1px solid #5b4382;align-self:flex-end}.bubble .who{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#c4a9ff;font-weight:900;margin-bottom:4px}.composer{display:flex;gap:8px;margin-top:9px;align-items:stretch}.composer textarea{resize:vertical;min-height:48px;max-height:150px}.composer button{align-self:stretch}.storyitem{border:1px solid var(--line);padding:12px;border-radius:12px;margin-top:8px;display:flex;justify-content:space-between;gap:8px;align-items:center}.storyitem strong{display:block}.choice{width:100%;text-align:left;margin:5px 0;background:#171421}.choice span{color:#c5a9ff;display:block;font-size:11px;margin-top:3px}.notice{padding:10px 12px;border-radius:12px;background:#161b25;color:#c8c7d9;border:1px solid var(--line);font-size:12px;margin-top:10px}.danger{color:#ff8ba1}.hidden{display:none!important}footer{text-align:center;color:#77768b;font-size:11px;padding:18px}
-@media(min-width:720px){header{padding-top:30px}.grid{grid-template-columns:1fr 1fr}.tabs{max-width:520px}.tab{font-size:14px}.chatlayout{display:grid;grid-template-columns:280px 1fr;gap:13px}.chatlayout .card{min-width:0}.chatlog{height:55vh}}
-</style>
-</head>
-<body>
-<header>
-  <div class="eyebrow">UNIVERSO DE SUPERVIVENCIA • FAN PROJECT</div>
-  <h1>FORSAKEN<span>:</span><br> TU PROPIO CAOS</h1>
-  <p class="subtitle">Crea tu personaje. Escribe tu historia. Sobrevive a tu manera.</p>
-  <div class="row wrap" style="margin-top:12px"><span class="pill">SIN ZAPS</span><span class="pill">SIN ANUNCIOS</span><span class="pill">GUARDADO LOCAL</span></div>
-</header>
-<main>
-  <nav class="tabs" aria-label="Secciones">
-    <button class="tab active" data-tab="creator">✦ Personaje</button>
-    <button class="tab" data-tab="rp">☠ Roleplay</button>
-    <button class="tab" data-tab="round">⏱ Ronda</button>
-    <button class="tab" data-tab="saved">▣ Historias</button>
-    <button class="tab" data-tab="spectre">👁 Spectre</button>
-    <button class="tab" data-tab="phone">📱 Teléfono</button>
-    <button class="tab" data-tab="inventory">🎒 Objetos</button>
-  </nav>
-  <section class="view active" id="creator">
-    <div class="grid">
-      <div class="card">
-        <h2>Tu identidad</h2>
-        <div class="row">
-          <div class="avatar" id="avatarPreview">🕷️</div>
-          <div><div id="previewName" style="font-size:21px;font-weight:900">Tu personaje</div><div id="previewRole" class="muted">Superviviente</div><div class="small">Vista previa en vivo</div></div>
-        </div>
-        <div class="field"><label for="charName">NOMBRE</label><input id="charName" maxlength="32" placeholder="Ej. Vanta" value="Vanta"></div>
-        <div class="two">
-          <div class="field"><label for="charRole">ROL</label><select id="charRole"><option>Superviviente</option><option>Asesino</option><option>Entidad misteriosa</option></select></div>
-          <div class="field"><label for="charEmoji">ICONO</label><select id="charEmoji"><option>🕷️</option><option>🦇</option><option>👁️</option><option>🐺</option><option>🎭</option><option>🩸</option><option>🌑</option><option>🤖</option><option>🃏</option><option>🕯️</option><option>🦴</option><option>🐈‍⬛</option></select></div>
-        </div>
-        <div class="two">
-          <div class="field"><label for="charColor">COLOR PRINCIPAL</label><select id="charColor"><option value="#9b6dff">Violeta</option><option value="#ff365f">Rojo</option><option value="#35c6ff">Azul eléctrico</option><option value="#7df0bb">Verde espectral</option><option value="#ffb84d">Ámbar</option><option value="#e9e9f2">Blanco</option></select></div>
-          <div class="field"><label for="charAbility">HABILIDAD</label><input id="charAbility" maxlength="50" value="Paso entre sombras" placeholder="Poder especial"></div>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Personalidad y trasfondo</h2>
-        <div class="field"><label for="charPersonality">PERSONALIDAD</label><textarea id="charPersonality" maxlength="500" placeholder="¿Cómo habla? ¿Es frío, bromista, desconfiado...?">Callado, observador y sarcástico. Nunca revela todo lo que sabe.</textarea></div>
-        <div class="field"><label for="charBackstory">HISTORIA</label><textarea id="charBackstory" maxlength="800" placeholder="¿De dónde viene? ¿Qué oculta?">Despertó en un pasillo sin ventanas. Solo recuerda una alarma y una puerta que no debería existir.</textarea></div>
-        <div class="field"><label for="charLook">ASPECTO / ROPA</label><textarea id="charLook" maxlength="400" placeholder="Ropa, silueta, accesorios...">Chaqueta oscura, guantes y una máscara agrietada.</textarea></div>
-        <div class="actions"><button class="primary" id="saveCharacter">Guardar personaje</button><button id="resetCharacter">Restablecer</button></div>
-        <div class="notice">Tu personaje se guarda en este navegador. Esta primera versión funciona sin cuenta ni servidor.</div>
-      </div>
-    </div>
-  </section>
-  <section class="view" id="rp">
-    <div class="chatlayout">
-      <aside class="card">
-        <h2>Preparar escena</h2>
-        <div class="field"><label for="mode">MODO</label><select id="mode"><option value="chat">Chat narrativo libre</option><option value="game">Modo juego: decisiones</option></select></div>
-        <div class="field"><label for="setting">ESCENARIO</label><select id="setting"><option>Hospital abandonado</option><option>Centro comercial a oscuras</option><option>Estación subterránea</option><option>Laboratorio sellado</option><option>Ciudad bajo la niebla</option><option>Mapa personalizado</option></select></div>
-        <div class="field hidden" id="customWrap"><label for="customSetting">TU MAPA</label><input id="customSetting" placeholder="Describe el escenario"></div>
-        <div class="field"><label for="tone">AMBIENTE</label><select id="tone"><option value="tension">Tensión y misterio</option><option value="action">Acción y persecución</option><option value="drama">Drama y secretos</option><option value="chaos">Caos con humor oscuro</option></select></div>
-        <button class="primary" id="startScene" style="width:100%">Comenzar historia</button>
-        <div class="actions"><button id="saveStory">Guardar historia</button><button id="clearChat">Nueva escena</button></div>
-        <div class="notice">El modo de juego ofrece decisiones y consecuencias narrativas. El chat responde con plantillas locales; no necesita internet, pero no es una IA conectada.</div>
-      </aside>
-      <div class="card">
-        <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Registro de la noche</h2><span class="pill" id="sceneBadge">EN ESPERA</span></div>
-        <div class="chatlog" id="chatlog" aria-live="polite"><div class="bubble ai"><span class="who">Sistema</span>Tu historia aún no ha comenzado. Elige un escenario y pulsa «Comenzar historia».</div></div>
-        <div id="choices" class="hidden"></div>
-        <form class="composer" id="chatForm"><textarea id="message" placeholder="Escribe lo que hace o dice tu personaje..." maxlength="1500" aria-label="Tu mensaje"></textarea><button class="primary" type="submit">Enviar ➤</button></form>
-      </div>
-    </div>
-  </section>
+<cabeza>​​
+< meta  charset = "utf-8" >
+< meta  name = "viewport"  content = "width=device-width, initial-scale=1, viewport-fit=cover" >
+< meta  name = "theme-color"  content = "#0b0b12" >
+< título > Abandonado: Tu Propio Caos </ título >
+<style>​​
+: raíz { --bg :#0b0b12; --panel :#151520; --panel2 :#1c1c2a; --line :#303044; --text :#f3f2fa; --muted :#aaa9c0; --red :#ff365f; --purple :#9b6dff; --green :#7df0bb }
+* { box-sizing : border-box } body { margin : 0 ; background : radial-gradient ( ellipse  at  top ,#211329 0 ,#0b0b12 48 % ) ; color : var ( --text ) ; font : 15 px / 1.45  system-ui , -apple-system , Segoe  UI , sans-serif ; min-height : 100 vh }
+botón , entrada , área de texto , seleccionar { fuente : heredar } botón { cursor : puntero ; borde : 1 px  sólido  var ( --line ) ; fondo : var ( --panel2 ) ; color : var ( --text ) ; radio de borde : 12 px ; relleno : 11 px  14 px ; peso de fuente : 700 } botón : hover { color de borde : var ( --purple ) } botón.primary { fondo : gradiente lineal ( 110 deg ,#ff365f , # a34bff ) ; borde : 0 } botón.subtle { fondo : transparente } botón : disabled { opacidad : .4 ; cursor : no permitido }
 
-  <section class="view" id="round">
-    <div class="grid">
-      <div class="card">
-        <h2>🏚️ La casa de espera</h2>
-        <p class="muted">Los supervivientes se reúnen aquí antes de que el Espectro los envíe a una ronda.</p>
-        <div style="background:linear-gradient(145deg,#21172b,#0c0c14);border:1px solid #473454;border-radius:16px;padding:18px;text-align:center">
-          <div style="font-size:48px">🏚️</div>
-          <div id="lobbyStatus" style="font-weight:900;margin:8px 0">La casa está en silencio…</div>
-          <div class="small">LA RONDA COMIENZA EN</div>
-          <div id="countdown" style="font-size:48px;font-weight:950;letter-spacing:3px;color:#ff6686;font-variant-numeric:tabular-nums">03:00</div>
-          <div class="small" id="lobbyHint">Pulsa «Entrar en la casa» para iniciar la espera.</div>
+
+view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:1fr;gap:13px}.card{background:linear-gradient(145deg,rgba(25,25,39,.97),rgba(17,17,27,.97));border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 12px 32px #0003}.card h2,.card h3{margin:0 0 12px}.card h2{font-size:19px}.card h3{font-size:15px}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}.row{display:flex;gap:9px;align-items:center}.row.wrap{flex-wrap:wrap}.row>*{min-width:0}.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}.field label{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.3px}.field input,.field textarea,.field select,.composer textarea{width:100%;background:#0d0d16;border:1px solid var(--line);border-radius:11px;padding:11px;color:var(--text);outline:none}.field input:focus,.field textarea:focus,.field select:focus,.composer textarea:focus{border-color:var(--purple)}.field textarea{resize:vertical;min-height:76px}.two{display:grid;:1fr 1fr;gap:10px}.avatar{width:86px;height:86px;display:grid;place-items:center;border-radius:22px;font-size:42px;background:linear-gradient(135deg,#2e1736,#17172b);border:1px solid #5a3d70;flex-shrink:0}.stat{background:#10101a;border:1px solid var(--line);border-radius:12px;padding:10px;flex:1}.stat strong{display:block;font-size:18px}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px 9px;color:#d9caff;font-size:11px;font-weight:800}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chatlog{height:min(48vh,460px);min-height:250px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px;background:#0c0c14;border:1px solid var(--line);border-radius:13px}.bubble{max-width:94%;padding:11px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.ai{background:#21182b;border:1px solid #44304f;align-self:flex-start}.bubble.user{background:#29203c;border:1px solid #5b4382;align-self:flex-end}.bubble .who{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#c4a9ff;font-weight:900;margin-bottom:4px}.composer{display:flex;gap:8px;margin-top:9px;align-items:stretch}.composer textarea{resize:vertical;min-height:48px;max-height:150px}.composer button{align-self:stretch}.storyitem{border:1px solid var(--line);padding:12px;border-radius:12px;margin-top:8px;display:flex;justify-content:space-between;gap:8px;align-items:center}.storyitem strong{display:block}.choice{width:100%;text-align:left;margin:5px 0;background:#171421}.choice span{color:#c5a9ff;display:block;font-size:11px;margin-top:3px}.notice{padding:10px 12px;border-radius:12px;background:#161b25;color:#c8c7d9;border:1px solid var(--line);font-size:12px;margin-top:10px}.danger{color:#ff8ba1}.hidden{display:none!important}footer{text-align:center;color:#77768b;font-size:11px;padding:18px}
+@media ( min-width : 720 px ) { header { padding-top : 30 px } . grid { grid-template-columns : 1 fr  1 fr } . tabs { max-width : 520 px } . tab { font-size : 14 px } . chatlayout { display : grid ; grid-template-columns : 280 px  1 fr ; gap : 13 px } . chatlayout . card { min-width : 0 } . chatlog { height : 55 vh } }
+</estilo >style>
+</head>​​head>
+< cuerpo > cuerpo>
+< encabezado > encabezado>
+  < div  class = "eyebrow" > UNIVERSO DE SUPERVIVENCIA • PROYECTO FAN </ div > < div  class = "eyebrow" > UNIVERSO DE SUPERVIVENCIA • FAN PROJECT </ div >
+  < h1 > Abandonado < span > : </ span > < br > TU PROPIO CAOS </ h1 > < h1 > ABANDONADO < span > : </ span > < br > TU PROPIO CAOS </ h1 >
+  < p  class = "subtitle" > Crea tu personaje. Escribe tu historia. Sobrevive a tu manera. </ p > < p  class = "subtitle" > Crea tu personaje. Escribe tu historia. Sobrevive a tu manera. </p>​​
+  <          
+
+<principal> principal >​>
+  <    
+    <  </   </
+    <  Juego de </  </
+    <button class="tab" data-tab="round">⏱ Ronda</button><button class="tab" data-tab="round">⏱ Ronda</button>
+    <button class="tab" data-tab="saved">▣ Historial</button><button class="tab" data-tab="saved">▣ Historias</button>
+    <button class="tab" data-tab="spectre">👁 Spectre</button><button class="tab" data-tab="spectre">👁 Spectre</button>
+    <button class="tab" data-tab="phone">📱 Teléfono</button><button class="tab" data-tab="phone">📱 Teléfono</button>
+    <button class="tab" data-tab="inventory">🎒 Objetos</button><button class="tab" data-tab="inventory">🎒 Objetos</button>
+  </nav></nav>
+  <section class="view active" id="creator"><section class="view active" id="creator">
+    <div class="grid"><div class="grid">
+      <div class="card"><div class="card">
+        <h2>Tu identidad</h2><h2>Tu identidad</h2>
+        <div class="row"><div class="row">
+          <div class="avatar" id="avatarPreview">🕷️</div><div class="avatar" id="avatarPreview">🕷️</div>
+          <div><div id="previewName" style="font-size:21px;font-weight:900">Tu personaje</div><div id="previewRole" class="muted">Superviviente</div><div class="small">Vista previa en vivo</div></div><div><div id="previewName" style="font-size:21px;font-weight:900">Tu personaje</div><div id="previewRole" class="muted">Superviviente</div><div class="small">Vista previa en vivo</div></div>
+        </div></div>
+        <div class="field"><label for="charName">NOMBRE</label><input id="charName" maxlength="32" placeholder="Ej. Vanta" value="Vanta"></div><div class="field"><label for="charName">NOMBRE</label><input id="charName" maxlength="32" placeholder="Ej. Vanta" value="Vanta"></div>
+        <div class="two"><div class="two">
+          < div  class = "field" > < label  for = "charRole" > ROL </ label > < select  id = "charRole" > < option > Superviviente </ option > < option > Asesino </ option > < option > Entidad misteriosa </ option > </ select > </ div >
+          < div  class = "field" > < label  for = "charEmoji" > ICONO </ label > < select  id = "charEmoji" > < option > 🕷️ </ option > < option > 🦇 </ option > < option > 👁️ </ option > < option > 🐺 </ option > < option > 🎭 </ option > < option > 🩸 </ option > < option > 🌑 </ option > < option > 🤖 </ option > < option > 🃏 </ option > < option > 🕯️ </ option > < option > 🦴 </ option > < option > 🐈‍⬛ </ option > </ select > </ div >
+        </div>​​
+        < div  class = "two" >
+          < div  class = "field" > < label  for = "charColor" > COLOR PRINCIPAL </ label > < select  id = "charColor" > < option  value = "#9b6dff" > Violeta </ ​​option > < option  value = "#ff365f" > Rojo </ option > < option  value = "#35c6ff" > Azul eléctrico </ option > < option  value = "#7df0bb" > Verde espectral </ option > < option  value = "#ffb84d" > Ámbar </ option > < option  value = "#e9e9f2" > Blanco </ option > </ select > </ div >
+          < div  class = "field" > < label  for = "charAbility" > HABILIDAD </ label > < input  id = "charAbility"  maxlength = "50"  value = "Paso entre sombras"  placeholder = "Poder especial" > </ div >
+        </div>​​
+      </div>​​
+      < div  class = "card" >
+        < h2 > Personalidad y trasfondo </ h2 >
+        < div  class = "field" > < label  for = "charPersonality" > PERSONALIDAD </ label > < textarea  id = "charPersonality"  maxlength = "500"  placeholder = "¿Cómo habla? ¿Es frío, bromista, desconfiado...?" > Callado, observador y sarcástico. Nunca revele todo lo que sabe. </ textarea > </ div >
+        < div  class = "field" > < label  for = "charBackstory" > HISTORIA </ label > < textarea  id = "charBackstory"  maxlength = "800"  placeholder = "¿De dónde viene? ¿Qué oculta?" > Despertó en un pasillo sin ventanas. Solo recuerda una alarma y una puerta que no debería existir. </ textarea > </ div >
+        < div  class = "field" > < label  for = "charLook" > ASPECTO / ROPA </ label > < textarea  id = "charLook"  maxlength = "400"  placeholder = "Ropa, silueta, accesorios..." > Chaqueta oscura, guantes y una máscara agrietada. </ textarea > </ div >
+        < div  class = "actions" > < button  class = "primary"  id = "saveCharacter" > Guardar personaje </ button > < button  id = "resetCharacter" > Restablecer </ button > </ div >
+        < div  class = "notice" > Tu personaje se guarda en este navegador. Esta primera versión funciona sin cuenta ni servidor. </div>​​
+      </div>​​
+    </div>​​
+  </section>
+  < section  class = "view"  id = "rp" >
+    < div  class = "chatlayout" >
+      < aside  class = "card" >
+        < h2 > Preparar escena </ h2 >
+        < div  class = "field" > < label  for = "mode" > MODO </ label > < select  id = "mode" > < option  value = "chat" > Chat narrativo libre </ option > < option  value = "game" > Modo juego: decisiones </ option > </ select > </ div >
+        < div  class = "field" > < label  for = "setting" > ESCENARIO </ label > < select  id = "setting" > < option > Hospital abandonado </ option > < option > Centro comercial a oscuras </ option > < option > Estación subterránea </ option > < option > Laboratorio sellado </ option > < option > Ciudad bajo la niebla </ option > < option > Mapa personalizado </ option > </ select > </ div >
+        < div  class = "field hidden"  id = "customWrap" > < label  for = "customSetting" > TU MAPA </ label > < input  id = "customSetting"  placeholder = "Describe el escenario" > </ div >
+        < div  class = "field" > < label  for = "tone" > AMBIENTE </ label > < select  id = "tone" > < option  value = "tension" > Tensión y misterio </ option > < option  value = "action" > Acción y persecución </ option > < option  value = "drama" > Drama y secretos </ option > < option  value = "chaos" > Caos con humor oscuro </ option > </ select > </ div >
+        < button  class = "primary"  id = " startScene"  style = " width : 100 % " > Comenzar historia </button>
+        < div  class = "actions" > < button  id = "saveStory" > Guardar historia </ button > < button  id = "clearChat" > Nueva escena </ button > </ div >
+        < div  class = "notice" > El modo de juego ofrece decisiones y consecuencias narrativas. El chat responde con plantillas locales; No necesita internet, pero no es una IA conectada. </div>​​
+      </aparte>​​
+      < div  class = "card" >
+        < div  class = "row"  style = " justify-content : space-between ; margin-bottom : 10 px " > < h2  style = " margin : 0 " > Registro de la noche </ h2 > < span  class = "pill"  id = "sceneBadge" > EN ESPERA </ span > </ div >
+        < div  class = "chatlog"  id = " chatlog "  aria-live = "polite" > < div class = "bubble ai" > < abarcan  clase = "who" > Sistema </ span > Tu historia aún no ha comenzado. Elige un escenario y pulsa «Comenzar historia». </ div > </ div > 
+        < div  id = "choices"  class = "hidden" > </ div >
+        < form  class = "composer"  id = "chatForm" > < textarea  id = "message"  placeholder = "Escribe lo que hace o dice tu personaje..."  maxlength = "1500"  aria-label = "Tu mensaje" > </ textarea > < button  class = "primary"  type = "submit" > Enviar ➤ </ botón > </ formulario >
+      </div>​​
+    </div>​​
+  </ sección >
+
+  < section  class = "view"  id = "round" >
+    < div  class = "grid" >
+      < div  class = "card" >
+        < h2 > 🏚️ La casa de espera </ h2 >
+        < p  class = "muted" > Los supervivientes se reúnen aquí antes de que el Espectro los envíe a una ronda. </p>​​
+         
+           
+            
+          < div  class = "small" > LA RONDA COMIENZA ES </ div >
+            
+          < div  class = "small"  id = "lobbyHint" > Pulsa «Entrar en la casa» para iniciar la espera. </div>​​
           <div class="actions" style="justify-content:center"><button class="primary" id="enterLobby">Entrar en la casa</button><button id="resetLobby">Reiniciar reloj</button></div>
         </div>
         <div class="notice">El reloj funciona mientras esta página esté abierta. Esta versión es una experiencia individual local: los demás supervivientes se simulan como personajes narrativos, no como jugadores conectados.</div>
